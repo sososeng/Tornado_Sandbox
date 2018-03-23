@@ -55,6 +55,11 @@ class MainHandler(TemplateHandler):
 def make_app():
     return tornado.web.Application([
         (r"/", MainHandler),
+        (
+            r"/static/(.*)",
+            tornado.web.StaticFileHandler,
+            {'path': 'static'}
+        ),
         # (r"/hello2", YouTooHandler),
         # (r"/hello/(.*)", YouHandler),
         # (r"/hello3", YouThreeHandler),
